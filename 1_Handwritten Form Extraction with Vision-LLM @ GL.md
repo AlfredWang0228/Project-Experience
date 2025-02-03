@@ -1,3 +1,14 @@
+# Table of Contents
+
+- [1. Motivation & Background](#1-motivation--background)
+- [2. Data Source & Preprocessing](#2-data-source--preprocessing)
+- [3. Model Architecture & Technical Approach](#3-model-architecture--technical-approach)
+- [4. Training & Validation](#4-training--validation)
+- [5. Deployment & Infrastructure](#5-deployment--infrastructure)
+- [6. Performance Results & Lessons Learned](#6-performance-results--lessons-learned)
+- [7. Future Work & Extensions](#7-future-work--extensions)
+
+
 # 1. Motivation & Background
 
 > **Summary:**  
