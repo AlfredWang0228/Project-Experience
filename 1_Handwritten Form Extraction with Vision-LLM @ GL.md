@@ -774,14 +774,14 @@ By leveraging Kubernetes on AWS, we achieve a flexible infrastructure capable of
 
 
 
-### 3.7 Future Work & Extensions
+# 7 Future Work & Extensions
 
 > **Summary:**
 >  Although our current setup has yielded significant improvements, there are additional directions to explore for enhanced accuracy, scalability, and maintainability. Below, we outline several key next steps and potential improvements, with a particular focus on unifying multiple form types into a single Vision-LLM using special tokens.
 
 ------
 
-#### Next Steps
+## Next Steps
 
 1. **Unified Model for All Form Types**
    - **Motivation**: Instead of maintaining multiple checkpoints (routing forms to specialized models), a single model handles all form variations.
@@ -798,7 +798,7 @@ By leveraging Kubernetes on AWS, we achieve a flexible infrastructure capable of
 
 ------
 
-#### Potential Improvements
+## Potential Improvements
 
 1. **More Robust Data Augmentation**
    - **Goal**: Tackle extreme scan conditions (heavy glare, partial occlusion, folds).
