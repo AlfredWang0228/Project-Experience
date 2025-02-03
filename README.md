@@ -38,4 +38,4 @@ Some details in the project descriptions, datasets, or configurations have been 
 Interested in discussing AI/ML or potential collaborations? Feel free to connect!  
 
 📧 Email: yuxiang.wang0476@gmail.com  
-💼 LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/yuxiang-wang/)  
+💼 LinkedIn: [LinkedIn Profile](https://www.linkedin.com/in/yuxiang-alfred-wang/)  
