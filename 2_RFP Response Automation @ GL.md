@@ -1,7 +1,18 @@
+## Table of Contents
+
+1. [Motivation & Background](#1-motivation--background)  
+2. [Data Sources & Preprocessing](#2-data-sources--preprocessing)  
+3. [Model Architecture & Technical Approach](#3-model-architecture--technical-approach)  
+4. [Deployment & Infrastructure](#4-deployment--infrastructure)  
+5. [Performance Results](#5-performance-results)  
+6. [Future Work & Extensions](#6-future-work--extensions)
+
+
+
 # 1. Motivation & Background
 
 > **Summary:**
->  We receive a high volume of RFP (Request for Proposal) questionnaires each year, but our sales team lacks sufficient bandwidth to respond to all of these questionnaires manually. As a result, we risk losing valuable business opportunities because completing these questionnaires is the essential first step in closing deals. To address this, we plan to harness Large Language Models (LLMs) for an end-to-end workflow—covering question extraction, topic classification, and Q&A generation using internal knowledge base articles (from “Qvidian”)—thus automating and streamlining the response process.
+> We receive a high volume of RFP (Request for Proposal) questionnaires each year, but our sales team lacks sufficient bandwidth to respond to all of these questionnaires manually. As a result, we risk losing valuable business opportunities because completing these questionnaires is the essential first step in closing deals. To address this, we plan to harness Large Language Models (LLMs) for an end-to-end workflow—covering question extraction, topic classification, and Q&A generation using internal knowledge base articles (from “Qvidian”)—thus automating and streamlining the response process.
 
 ------
 
@@ -176,7 +187,7 @@
 # 2. Data Sources & Preprocessing
 
 > **Summary:**
->  In this phase, we focus on how we acquire, transform, and prepare data for the **Question Extraction** process. Our primary data sources are (1) a decade’s worth of RFP attachments (in multiple file formats) stored in an internal database, and (2) the **Qvidian** knowledge base containing over 3000k articles. Below, we outline the challenges, tools, and workflows used to clean, parse, and structure these documents for downstream tasks.
+> In this phase, we focus on how we acquire, transform, and prepare data for the **Question Extraction** process. Our primary data sources are (1) a decade’s worth of RFP attachments (in multiple file formats) stored in an internal database, and (2) the **Qvidian** knowledge base containing over 3000k articles. Below, we outline the challenges, tools, and workflows used to clean, parse, and structure these documents for downstream tasks.
 
 ------
 
@@ -320,7 +331,7 @@
 # 3. Model Architecture & Technical Approach
 
 > **Summary:**
->  After extracting and deduplicating questions, we proceed with three core tasks: **Topic Assignment**, **Clustering for Representative Questions**, and **Retrieval-Augmented Generation (RAG)**. Below, we detail how each component works, what models and techniques are employed, and how they integrate into the overall system.
+> After extracting and deduplicating questions, we proceed with three core tasks: **Topic Assignment**, **Clustering for Representative Questions**, and **Retrieval-Augmented Generation (RAG)**. Below, we detail how each component works, what models and techniques are employed, and how they integrate into the overall system.
 
 ------
 
@@ -477,7 +488,7 @@
 # 4. Deployment & Infrastructure
 
 > **Summary:**
->  This section outlines how we package and deploy our question-extraction, topic-assignment, and RAG pipeline. It also covers system architecture choices for scaling, monitoring, and ensuring smooth integration with existing enterprise workflows.
+> This section outlines how we package and deploy our question-extraction, topic-assignment, and RAG pipeline. It also covers system architecture choices for scaling, monitoring, and ensuring smooth integration with existing enterprise workflows.
 
 ------
 
@@ -547,7 +558,7 @@
 # 5. Performance Results
 
 > **Summary:**
->  Below are the key performance metrics achieved across various modules, reflecting both **accuracy** and **usability** gains. We also highlight improvement trends observed following iterative updates and fine-tuning cycles.
+> Below are the key performance metrics achieved across various modules, reflecting both **accuracy** and **usability** gains. We also highlight improvement trends observed following iterative updates and fine-tuning cycles.
 
 ------
 
@@ -617,193 +628,6 @@
   - Integrating **feedback mechanisms** (e.g., one-click rating) to let users provide direct input on answer quality.
 
 > **Bottom Line:** The system meets its core objectives—**scalability**, **accuracy**, and **efficiency**—while retaining flexibility for ongoing refinements. As more SMEs review and validate answers, and as the retrieval methods evolve, we anticipate continuous gains in both user satisfaction and organizational impact.
-
-
-
-
-
-```markdown
-## Table of Contents
-
-1. [Motivation & Background](#1-motivation--background)  
-2. [Data Sources & Preprocessing](#2-data-sources--preprocessing)  
-3. [Model Architecture & Technical Approach](#3-model-architecture--technical-approach)  
-4. [Deployment & Infrastructure](#4-deployment--infrastructure)  
-5. [Performance Results](#5-performance-results)  
-6. [Future Work & Extensions](#6-future-work--extensions)
-```
-
-# 1. Motivation & Background
-
-> **Summary:**
->  We receive a high volume of RFP (Request for Proposal) questionnaires each year, but our sales team lacks sufficient bandwidth to respond to all of these questionnaires manually. As a result, we risk losing valuable business opportunities because completing these questionnaires is the essential first step in closing deals. To address this, we plan to harness Large Language Models (LLMs) for an end-to-end workflow—covering question extraction, topic classification, and Q&A generation using internal knowledge base articles (from “Qvidian”)—thus automating and streamlining the response process.
-
-------
-
-## Business Context
-
-- **Increasing Volume of RFP Questionnaires**
-  - Sales teams are inundated with questionnaires as part of the proposal process for prospective clients.
-  - Timely responses are critical; **delays** or **non-responses** frequently result in lost contracts or reputational damage.
-- **Resource Constraints & Efficiency Gaps**
-  - Manually answering each question is time-consuming.
-  - Existing processes cannot scale to meet growing volumes.
-  - Risk of human error in selecting and compiling accurate answers under tight deadlines.
-- **Strategic Opportunity**
-  - Automating responses with LLMs can drastically **reduce turnaround times** and **improve consistency**.
-  - By tapping into a **Qvidian-based** knowledge repository, the system can deliver **tailored** and **reliable** responses.
-
-------
-
-## Technical Rationale
-
-1. Automated Question Extraction
-   - An LLM can identify and segment questions from lengthy RFP documents, reducing manual parsing.
-2. Topic Analysis & Classification
-   - Classifies each question by topic (e.g., pricing, compliance, product features) to route to correct knowledge domains.
-3. Q&A from Internal Knowledge Base
-   - Uses retrieval-augmented generation for relevant, up-to-date answers from the Qvidian repository.
-
-> **Bottom Line:** LLM-powered automation enables us to handle a growing number of RFPs without sacrificing quality or timeliness.
-
-------
-
-# 2. Data Sources & Preprocessing
-
-> **Summary:**
->  We focus on acquiring, transforming, and preparing data for question extraction. Our primary data sources include 10+ years of RFP attachments stored in our internal database and the **Qvidian** knowledge base with over 3000k articles. We handle large volumes, diverse formats (Excel, Word, PDF), and significant duplication.
-
-------
-
-## Key Steps
-
-1. **Customized Document Parsing**
-   - Convert older `.doc`/`.xls` formats to `.docx`/`.xlsx`.
-   - Extract text from Word, Excel (multiple sheets), and PDF.
-2. **Chunking & Section Identification**
-   - Use a **large chunk window** + rule-based solution (headings, page layout) + LLM classification to isolate **questionnaire** sections.
-3. **Paragraph-Level Question Extraction**
-   - Classify each paragraph as “true” (question) or “false” (not a question).
-   - **~94%** accuracy on curated datasets.
-4. **Deduplication with Hashing**
-   - Use a hash map to skip identical questions, reducing both storage and computational overhead.
-
-> **Outcome:** A refined and **unique** set of questions ready for topic analysis and Q&A.
-
-------
-
-# 3. Model Architecture & Technical Approach
-
-> **Summary:**
->  After extracting questions, we have three core tasks: **Topic Assignment**, **Clustering & Representative Questions**, and a **Retrieval-Augmented Generation (RAG)** pipeline.
-
-------
-
-## 3.1 Topic Assignment with Human-Guided SFT
-
-1. Human-Labeled Dataset
-   - SMEs label questions into predefined categories (e.g., Pricing, Compliance).
-   - The LLM (e.g., **LLAMA-3 70B**) is fine-tuned for topic classification.
-2. Trend Analysis
-   - ~80% F1 score due to inherent ambiguity in topic boundaries.
-   - Use these classifications for a comprehensive **60+ page** report on question trends.
-
-------
-
-## 3.2 Clustering with SBERT & DBSCAN
-
-1. Embedding Generation
-   - **Sentence-BERT** transforms each question into a dense vector.
-2. DBSCAN Clustering
-   - Automatically groups semantically similar questions.
-   - Identifies representative questions for each cluster.
-3. Q&A Database Initialization
-   - Representative questions become seeds in a Q&A database.
-   - SMEs review or supply answers for accuracy.
-
-------
-
-## 3.3 Retrieval-Augmented Generation (RAG) Pipeline
-
-1. Multiple Retrieval Methods
-   - **Keyword Search**, **Naive Similarity**, **Tree-Based** search in Qvidian’s hierarchical structure.
-2. Relevance Ranking Fusion (RRF)
-   - Combines each retrieval’s relevance score; final ranking evaluated with **mAP**.
-3. Generation & Storage
-   - **LLAMA-3 70B** fine-tuned on SME-approved Q&A.
-   - Vector DB stores verified Q&A pairs, minimizing hallucination.
-   - ~30% complaint rate reduced to 5% by regularly updating Qvidian articles and refining retrieval.
-
-> **Outcome:** A robust pipeline that accurately fetches and generates answers with minimal reliance on manual intervention.
-
-------
-
-# 4. Deployment & Infrastructure
-
-> **Summary:**
->  This section covers how we package, deploy, and monitor the end-to-end pipeline, ensuring scalability, reliability, and security.
-
-------
-
-## 4.1 Environment & Packaging
-
-- **Containerization (Docker)** ensures consistent runtime environments.
-- **Kubernetes** manages horizontal scaling, automatic failover, and container orchestration.
-
-## 4.2 Pipeline Orchestration
-
-- **Document Ingestion Pipeline:** Triggered by message queues or batch jobs.
-- Microservices:
-  1. **Question Extraction**
-  2. **Topic Assignment**
-  3. **Clustering/DB**
-  4. **RAG Inference**
-
-## 4.3 Monitoring & Logging
-
-- **Prometheus** or **Datadog** for metrics, **ELK Stack** for centralized logging.
-- A/B testing & canary releases to safely roll out model updates.
-
-## 4.4 Security
-
-- **OAuth/JWT** for authentication.
-- Encrypt data at rest and in transit.
-- **Role-based** access control to sensitive logs and processes.
-
-> **Key Benefit:** A containerized, orchestrated solution with robust monitoring simplifies maintenance and accelerates future expansions.
-
-------
-
-# 5. Performance Results
-
-> **Summary:**
->  We detail accuracy and user-feedback metrics for each system component, highlighting improvements over iterative updates.
-
-------
-
-## 5.1 Questionnaire Section Identification
-
-- **Near-perfect** accuracy in identifying relevant sections.
-
-## 5.2 Question Extraction
-
-- ~94% accuracy in separating questions from surrounding text.
-
-## 5.3 Topic Assignment
-
-- **80% F1** score; acceptable given human-level inconsistencies.
-
-## 5.4 Q&A Coverage & Quality
-
-- **90%** coverage of frequent questions with SME-verified answers.
-- Complaint rate on LLM answers fell from **30%** to **5%** after improved retrieval and Qvidian synchronization.
-
-## 5.5 System Scalability
-
-- LLM inference latency **1.5–2 seconds** on GPU.
-- **Kubernetes**-based scaling to handle surges in RFP volumes.
-
-------
 
 # 6. Future Work & Extensions
 
